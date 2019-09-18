@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./public/style.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://code.jquery.com/jquery-2.2.1.min.js"
+      integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Fcc-Metric-Imperial-Converter</title>
+  </head>
+
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container mt-4">
+        <h1 class="mb-4 text-center text-primary alert alert-success">
+          Metric Imperial Converter
+        </h1>
+        <form class="mb-4" id="convertForm">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              id="convertField"
+              name="input"
+              placeholder="3.1mi"
+              class="form-control"
+            />
+            <div class="input-group-append">
+              <button id="convert" type="submit" class="btn btn-danger">
+                Convert!
+              </button>
+            </div>
+          </div>
+        </form>
+        <section class="container">
+          <p id="result" class="lead"></p>
+          <code id="jsonResult" class=""></code>
+        </section>
+      </div>
+    </div>
+    <section class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card alert-warning">
+            <div class="card-body">
+              <h5 class="card-title text-muted">Example usage:</h5>
+              <p class="card-text">
+                <code>/api/convert?input=4gal</code><br />
+                <code>/api/convert?input=1/2km</code><br />
+                <code>/api/convert?input=5.4/3lbs</code><br />
+                <code>/api/convert?input=kg</code><br />
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card alert-info">
+            <div class="card-body">
+              <h5 class="card-title text-muted">Example return:</h5>
+              <p class="card-text">
+                <code>
+                  {initNum: 3.1, initUnit: 'mi', returnNum: 5.0000008,
+                  returnUnit: 'km', string: '3.1 miles converts to 5.00002
+                  kilometers'}
+                </code>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="alert-danger" />
+      <ul class="list-group">
+        <li class="list-group-item active">
+          <p>
+            This project is part of FreeCodeCamp. Below are the user stories:
+          </p>
+        </li>
+        <li class="list-group-item ">
+          I will help prevent the client from trying to guess(sniff) the MIME
+          type.
+        </li>
+        <li class="list-group-item">
+          The from file input field has the "name" attribute set to "upfile". We
+          rely on this in testing.
+        </li>
+        <li class="list-group-item">
+          I will prevent cross-site scripting (XSS) attacks.
+        </li>
+        <li class="list-group-item">
+          I can <b>GET</b> <code>/api/convert</code> with a single parameter
+          containing an accepted number and unit and have it converted.
+        </li>
+        <li class="list-group-item">
+          Hint: Split the input by looking for the index of the first character.
+        </li>
+        <li class="list-group-item">
+          I can convert 'gal' to 'L' and vice versa. <b>(1 gal to 3.78541 L)</b>
+        </li>
+        <li class="list-group-item">
+          I can convert 'lbs' to 'kg' and vice versa.
+          <b>(1 lbs to 0.453592 kg)</b>
+        </li>
+        <li class="list-group-item">
+          I can convert 'mi' to 'km' and vice versa. <b>(1 mi to 1.60934 km)</b>
+        </li>
+        <li class="list-group-item">
+          If my unit of measurement is invalid, returned will be 'invalid unit'.
+        </li>
+        <li class="list-group-item">
+          If my number is invalid, returned with will 'invalid number'.
+        </li>
+        <li class="list-group-item">
+          If both are invalid, return will be 'invalid number and unit'.
+        </li>
+        <li class="list-group-item">
+          I can use fractions, decimals or both in my parameter(ie. 5, 1/2,
+          2.5/6), but if nothing is provided it will default to 1.
+        </li>
+        <li class="list-group-item">
+          My return will consist of the initNum, initUnit, returnNum,
+          returnUnit, and string spelling out units in format
+          <code
+            >{initNum} {initial_Units} converts to {returnNum}
+            {return_Units}</code
+          >
+          with the result rounded to 5 decimals.
+        </li>
+        <li class="list-group-item">
+          All 16 unit tests are complete and passing.
+        </li>
+        <li class="list-group-item">
+          All 5 functional tests are complete and passing.
+        </li>
+      </ul>
+
+      <div class="card-footer bg-primary text-white text-center border-success">
+        Developed by
+        <a
+          href="https://github.com/avatarfreak"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="text-warning">Dave</span>
+        </a>
+      </div>
+    </section>
+    <script src="./public/form.js"></script>
+  </body>
+</html>
